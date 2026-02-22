@@ -65,9 +65,9 @@ const team = [
     image: 'https://i.pinimg.com/736x/67/f7/a3/67f7a3df69ad06a19afcbc19716a3cf5.jpg',
   },
   {
-    name: 'الاء منزر',
-    position: 'مستشار منح دراسية',
-    image: 'https://i.pinimg.com/736x/67/f7/a3/67f7a3df69ad06a19afcbc19716a3cf5.jpg',
+    name: 'سماح احمد',
+    position: 'تسويق ',
+    image: 'https://i.pinimg.com/1200x/ae/59/0d/ae590d66406ef09ddbeb228354c8e268.jpg',
   },
 ];
 
@@ -113,7 +113,7 @@ export function AboutSection() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1760246964044-1384f71665b9?w=800"
+                src="https://i.pinimg.com/736x/9c/a6/a9/9ca6a97bb0974a375af48a677289045b.jpg"
                 alt="مقر شركة ريتال"
                 className="w-full h-56 object-cover"
               />

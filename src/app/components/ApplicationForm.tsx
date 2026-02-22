@@ -58,19 +58,7 @@ export function ApplicationForm() {
           املأ البيانات خطوة بخطوة وسيتم تواصل فريقنا معك
         </p>
 
-        {/* Progress Bar */}
-        {/* <div className="flex justify-between mb-12">
-          {[1,2,3,4,5,6,7].map((num) => (
-            <div key={num} className="flex-1">
-              <div className={`w-8 h-8 rounded-full mx-auto mb-2 flex items-center justify-center font-semibold ${step >= num ? 'bg-blue-900 text-white' : 'bg-gray-200 text-gray-500'}`}>
-                {num}
-              </div>
-              <div className="text-xs text-center">{[
-                'وجهة','دولة','تخصص','فرعي','بيانات','معدل + CV','مراجعة'
-              ][num-1]}</div>
-            </div>
-          ))}
-        </div> */}
+      
 
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
           <AnimatePresence mode="wait">
