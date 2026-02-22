@@ -47,21 +47,22 @@ function App() {
         <main>
           <HeroSection onNavigate={handleNavigation} />
           
-          <UniversitiesSlider />
-
           <ScholarshipsSection />
-          
-          <SuccessStories />
+
+          <UniversitiesSlider />
+          <ApplicationForm />
+
+          {/* <SuccessStories /> */}
           
           
           
           <UniversitiesSection />
           
-          <ApplicationForm />
           
-          {/* <div ref={aboutRef}>
+          
+          <div ref={aboutRef}>
             <AboutSection />
-          </div> */}
+          </div>
           
           <ContactSection />
         </main>

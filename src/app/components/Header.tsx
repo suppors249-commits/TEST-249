@@ -11,11 +11,13 @@ export function Header({ onNavigate }: HeaderProps) {
 
   const menuItems = [
     { label: 'الرئيسية', id: 'home' },
-    { label: 'الخدمات', id: 'services' },
     { label: 'المنح', id: 'scholarships' },
+    { label: 'الخدمات', id: 'services' },
+    
     { label: 'الجامعات', id: 'universities' },
-    { label: 'تواصل معنا', id: 'contact' },
+    
     { label: 'اعرف عنا', id: 'about' },
+    { label: 'تواصل معنا', id: 'contact' },
   ];
 
   return (

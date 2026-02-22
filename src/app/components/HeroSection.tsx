@@ -33,7 +33,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
           }`}
           style={{ backgroundImage: `url(${img})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/70 via-blue-900/60 to-blue-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue via-blue-900/60 " />
         </div>
       ))}
 
