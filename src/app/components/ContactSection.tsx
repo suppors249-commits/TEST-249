@@ -73,18 +73,18 @@ export function ContactSection() {
                     </p>
                   </div>
                 </div>
-
+               <a href="https://api.whatsapp.com/send?phone=201002337674" className="flex items-start gap-4">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8  rounded-xl flex items-center justify-center flex-shrink-0">
                     <Phone className="w-6 h-6 text-blue-900" />
                   </div>
                   <div className="text-right">
                     <p className="text-gray-600" dir="ltr">
-                      +249 XXX XXX XXX<br />
-                      +249 YYY YYY YYY
+                      +20 100 2337 674<br />
+                      
                     </p>
                   </div>
-                </div>
+                </div></a>
 
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8  rounded-xl flex items-center justify-center flex-shrink-0">
@@ -102,7 +102,7 @@ export function ContactSection() {
               </div>
 
               <button
-                onClick={() => window.open('https://wa.me/', '_blank')}
+                onClick={() => window.open('https://api.whatsapp.com/send?phone=201002337674', '_blank')}
                 className="w-full mt-8 bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors"
               >
                 <MessageCircle className="w-5 h-5" />
@@ -112,15 +112,15 @@ export function ContactSection() {
 
             {/* Map Placeholder */}
             <div className="bg-gray-200 rounded-2xl h-64 overflow-hidden">
-              <iframe
-               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.0541078527062!2d31.20429786126471!3d30.03530551911025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145846ceee49d8a5%3A0x51646d143f23564e!2z2aQg2YXYrdmK2Yog2KfZhNiv2YrZhiDYo9io2Ygg2KfZhNi52LLYjCDYp9mE2K_ZgtmK2Iwg2YLYs9mFINin2YTYr9mC2YrYjCDZhdit2KfZgdi42Kkg2KfZhNis2YrYstipIDM3NTAxNjE!5e0!3m2!1sar!2seg!4v1771248193048!5m2!1sar!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                title="موقع الشركة"
-              />
+             <iframe
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.6675272203337!2d31.2118!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145841c9c8c7a7ef%3A0x3a2b5d1a2c3d4e5f!2s4%20Mohy%20El%20Din%20Abo%20El%20Ez%2C%20Ad%20Doqi%2C%20Giza%20Governorate%2C%20Egypt!5e0!3m2!1sen!2sus!4v1713459996237!5m2!1sen!2sus"
+             width="100%"
+             height="100%"
+              style={{ border: 0 }}
+             allowFullScreen
+              loading="lazy"
+            title="موقع الشركة"
+        />
             </div>
           </motion.div>
 
@@ -218,7 +218,7 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2 text-right">
+                  <label className="block text-gray-300 font-medium mb-2 text-right">
                     الرسالة *
                   </label>
                   <textarea

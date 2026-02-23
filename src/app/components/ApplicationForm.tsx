@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface FormData {
   destination: string;
@@ -24,8 +25,37 @@ const majors = {
 };
 
 const countries = {
-  'مصر': ['Cairo', 'Alexandria', 'Giza'],
-  'خارج مصر': ['Sudan', 'Saudi Arabia', 'UAE', 'Turkey'],
+  
+
+  ' الوطن العربي': [
+    'رواندا',
+    ' السعودية',
+    'الإمارات  ',
+    'قطر',
+    'الكويت',
+    'البحرين',
+    ' عُمان',
+    'الأردن',
+    'لبنان',
+    'العراق',
+    'المغرب',
+    'الجزائر',
+    'السودان',
+    'تونس'
+  ],
+
+  'دول أوروبا': [
+    'ألمانيا',
+    'فرنسا',
+    'إيطاليا',
+    'إسبانيا',
+    'المملكة المتحدة',
+    'هولندا',
+    'السويد',
+    'سويسرا',
+    'النمسا',
+    'تركيا'
+  ]
 };
 
 export function ApplicationForm() {
@@ -49,7 +79,7 @@ export function ApplicationForm() {
   };
 
   return (
-    <div className="py-16 bg-gradient-to-b from-gray-50 to-white" id="apply">
+    <div className="py-11 bg-gradient-to-b from-gray-50 to-white" id="apply">
       <div className="container mx-auto px-4 max-w-3xl">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-4">
           ابدأ رحلتك الدراسية
@@ -58,19 +88,7 @@ export function ApplicationForm() {
           املأ البيانات خطوة بخطوة وسيتم تواصل فريقنا معك
         </p>
 
-        {/* Progress Bar */}
-        {/* <div className="flex justify-between mb-12">
-          {[1,2,3,4,5,6,7].map((num) => (
-            <div key={num} className="flex-1">
-              <div className={`w-8 h-8 rounded-full mx-auto mb-2 flex items-center justify-center font-semibold ${step >= num ? 'bg-blue-900 text-white' : 'bg-gray-200 text-gray-500'}`}>
-                {num}
-              </div>
-              <div className="text-xs text-center">{[
-                'وجهة','دولة','تخصص','فرعي','بيانات','معدل + CV','مراجعة'
-              ][num-1]}</div>
-            </div>
-          ))}
-        </div> */}
+     
 
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
           <AnimatePresence mode="wait">
@@ -78,27 +96,51 @@ export function ApplicationForm() {
               <>
                 {step === 1 && (
                   <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    className="space-y-6"
-                  >
-                    <h3 className="text-2xl font-bold text-blue-900 text-center mb-4">اختر الوجهة</h3>
-                    <div className="grid grid-cols-2 gap-4">
-                      {['مصر', 'خارج مصر'].map((dest) => (
-                        <button
-                          key={dest}
-                          onClick={() => {
-                            setFormData({...formData, destination: dest, country: ''});
-                            setStep(2);
-                          }}
-                          className="p-6 rounded-xl bg-blue-50 hover:bg-blue-100 border border-gray-200 hover:border-blue-400 transition-all"
-                        >
-                          {dest}
-                        </button>
-                      ))}
-                    </div>
-                  </motion.div>
+  initial={{ opacity: 0, x: 20 }}
+  animate={{ opacity: 1, x: 0 }}
+  exit={{ opacity: 0, x: -20 }}
+  className="space-y-6"
+>
+  
+
+  <h3 className="text-2xl font-bold text-blue-900 text-center mb-10">
+    اختر الوجهة
+  </h3>
+
+  <div className="flex gap-6 justify-center">
+    {[
+      {
+        name: " الوطن العربي",
+        image: "https://i.pinimg.com/736x/ab/01/53/ab01536873e3bf60a68b7d194e015555.jpg"
+      },
+      {
+        name: "دول أوروبا",
+        image: "https://i.pinimg.com/1200x/7b/29/f0/7b29f0d759e7d812f62602b80318242c.jpg"
+      }
+    ].map((dest) => (
+      <button
+        key={dest.name}
+        onClick={() => {
+          setFormData({ ...formData, destination: dest.name, country: '' });
+          setStep(2);
+        }}
+        className="relative w-64 h-40 rounded-xl overflow-hidden group shadow-md"
+      >
+        <img
+          src={dest.image}
+          alt={dest.name}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+        />
+
+        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all"></div>
+
+        <span className="absolute inset-0 flex items-center justify-center text-white text-lg font-bold">
+          {dest.name}
+        </span>
+      </button>
+    ))}
+  </div>
+</motion.div>
                 )}
 
                 {step === 2 && (
@@ -108,7 +150,20 @@ export function ApplicationForm() {
                     exit={{ opacity: 0, x: -20 }}
                     className="space-y-6"
                   >
-                    <h3 className="text-2xl font-bold text-blue-900 text-center mb-4">اختر الدولة</h3>
+                    <div className="flex items-center justify-between mb-4">
+  <button
+    onClick={() => setStep(prev => prev - 1)}
+    className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
+  >
+     <ArrowRight className="w-4 h-4" />
+    رجوع
+   
+  </button>
+
+  <h3 className="text-2xl font-bold text-blue-900 text-center mb-4">اختر الدولة</h3>
+</div>
+                 
+                    
                     <div className="grid grid-cols-2 gap-4">
                       {countries[formData.destination as keyof typeof countries].map((country) => (
                         <button
@@ -130,7 +185,22 @@ export function ApplicationForm() {
                     exit={{ opacity: 0, x: -20 }}
                     className="space-y-6"
                   >
-                    <h3 className="text-2xl font-bold text-blue-900 text-center mb-4">اختر التخصص</h3>
+                          <div className="flex items-center justify-between mb-4">
+  <button
+    onClick={() => setStep(prev => prev - 1)}
+    className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
+  >
+     <ArrowRight className="w-4 h-4" />
+    
+                     رجوع
+   
+  </button>
+
+  <h3 className="text-2xl font-bold text-blue-900 text-center mb-4">اختر التخصص</h3>
+</div>
+
+                       
+                     
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {Object.keys(majors).map((major) => (
                         <button
@@ -152,7 +222,24 @@ export function ApplicationForm() {
                     exit={{ opacity: 0, x: -20 }}
                     className="space-y-6"
                   >
-                    <h3 className="text-2xl font-bold text-blue-900 text-center mb-4">اختر التخصص الفرعي</h3>
+                                            <div className="flex items-center justify-between mb-4">
+  <button
+    onClick={() => setStep(prev => prev - 1)}
+    className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
+  >
+     <ArrowRight className="w-4 h-4" />
+    
+                     رجوع
+   
+  </button>
+
+<h3 className="text-2xl font-bold text-blue-900 text-center flex-1">
+     التخصص الفرعي
+  </h3></div>
+  
+     
+
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {majors[formData.major as keyof typeof majors].map((sub) => (
                         <button
@@ -174,7 +261,23 @@ export function ApplicationForm() {
                     exit={{ opacity: 0, x: -20 }}
                     className="space-y-6"
                   >
-                    <h3 className="text-2xl font-bold text-blue-900 text-center mb-4">البيانات الشخصية</h3>
+                                    <div className="flex items-center justify-between mb-4">
+  <button
+    onClick={() => setStep(prev => prev - 1)}
+    className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
+  >
+     <ArrowRight className="w-4 h-4" />
+    
+                     رجوع
+   
+  </button>
+
+<h3 className="text-2xl font-bold text-blue-900 text-center flex-1">
+    البيانات الشخصية
+  </h3></div>
+
+  
+
                     <div className="space-y-4">
                       <input
                         type="text"
@@ -207,36 +310,72 @@ export function ApplicationForm() {
                   </motion.div>
                 )}
 
-                {step === 6 && (
-                  <motion.div
-                    initial={{ opacity:0, x:20 }}
-                    animate={{opacity:1, x:0}}
-                    exit={{opacity:0, x:-20}}
-                    className="space-y-6"
-                  >
-                    <h3 className="text-2xl font-bold text-blue-900 text-center mb-4">النسبة / المعدل + رفع السيفي</h3>
-                    <div className="space-y-4">
-                      <input
-                        type="text"
-                        placeholder="النسبة / المعدل"
-                        value={formData.grade}
-                        onChange={(e)=>setFormData({...formData, grade:e.target.value})}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none text-right"
-                      />
-                      <input
-                        type="file"
-                        onChange={(e)=>setFormData({...formData, cvFile:e.target.files?.[0] || null})}
-                        className="w-full"
-                      />
-                      <button
-                        onClick={()=>setStep(7)}
-                        className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800 transition-colors"
-                      >
-                        التالي
-                      </button>
-                    </div>
-                  </motion.div>
-                )}
+              {step === 6 && (
+  <motion.div
+    initial={{ opacity:0, x:20 }}
+    animate={{opacity:1, x:0}}
+    exit={{opacity:0, x:-20}}
+    className="space-y-6"
+  >
+    {/* رأس الصفحة مع زر الرجوع */}
+    <div className="flex items-center justify-between mb-4">
+      <button
+        onClick={() => setStep(prev => prev - 1)}
+        className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
+      >
+        <ArrowRight className="w-4 h-4" />
+        رجوع
+      </button>
+
+      <h3 className="text-2xl font-bold text-blue-900 text-center flex-1">
+        النسبة
+      </h3>
+    </div>
+
+    <div className="space-y-4">
+      <input
+        type="text"
+        placeholder="النسبة / المعدل"
+        value={formData.grade}
+        onChange={(e)=>setFormData({...formData, grade:e.target.value})}
+        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none text-right"
+      />
+
+      <h3 className="text-2xl font-bold text-blue-900 text-center mb-2">صورة الشهادة</h3>
+
+      {/* مربع رفع الصورة مع معاينة */}
+      <div className="flex flex-col items-center gap-2">
+        <label className="w-58 h-28 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-blue-400 transition-colors">
+          {formData.cvFile ? (
+            <img
+              src={URL.createObjectURL(formData.cvFile)}
+              alt="معاينة الشهادة"
+              className="w-full h-full object-cover rounded-lg"
+            />
+          ) : (
+            <span className="text-gray-400 text-center p-4">اضغط هنا لرفع الصورة</span>
+          )}
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e)=>setFormData({...formData, cvFile:e.target.files?.[0] || null})}
+            className="hidden"
+          />
+        </label>
+        {formData.cvFile && (
+          <span className="text-gray-700 text-sm">{formData.cvFile.name}</span>
+        )}
+      </div>
+
+      <button
+        onClick={()=>setStep(7)}
+        className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800 transition-colors"
+      >
+        التالي
+      </button>
+    </div>
+  </motion.div>
+)}
 
                 {step === 7 && (
                   <motion.div
@@ -245,7 +384,18 @@ export function ApplicationForm() {
                     exit={{opacity:0, x:-20}}
                     className="space-y-6"
                   >
-                    <h3 className="text-2xl font-bold text-blue-900 text-center mb-4">مراجعة البيانات</h3>
+                     <div className="flex items-center justify-between mb-4">
+      <button
+        onClick={() => setStep(prev => prev - 1)}
+        className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
+      >
+        <ArrowRight className="w-4 h-4" />
+        رجوع
+      </button>
+<h3 className="text-2xl font-bold text-blue-900 text-center mb-4">مراجعة البيانات</h3>
+      
+    </div>
+                    
                     <div className="space-y-3">
                       {Object.entries(formData).map(([key, value])=>(
                         <div key={key} className="flex justify-between border-b py-1">

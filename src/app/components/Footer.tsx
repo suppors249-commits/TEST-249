@@ -11,9 +11,10 @@ export function Footer({ onNavigate }: FooterProps) {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div className="text-right">
-<div className="text-2xl font-bold text">
-  Rit<span className="text-red-500">al</span>
-</div>
+          <div className="text-2xl font-bold text">
+            ابق على تواصل
+           Rit<span className="text-red-500">al</span>
+           </div>
             <p className="text-blue-100 mb-6 leading-relaxed">
               شريكك الموثوق في رحلتك التعليمية نحو مستقبل أفضل
             </p>
@@ -23,6 +24,43 @@ export function Footer({ onNavigate }: FooterProps) {
             >
               قدّم الآن
             </button>
+          </div>
+
+           {/* Social Media */}
+          <div className="text-right">
+           
+            <div className="flex gap-3 justify-end flex-wrap">
+              <a
+                href="https://soob-portfolio.vercel.app/"
+                className="w-12 h-12 bg-blue-800 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-6 h-6" />
+              </a>
+              <a
+                href="https://soob-portfolio.vercel.app/"
+                className="w-12 h-12 bg-blue-800 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a
+                href="https://soob-portfolio.vercel.app/"
+                className="w-12 h-12 bg-blue-800 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors"
+                aria-label="Twitter"
+              >
+                <Twitter className="w-6 h-6" />
+              </a>
+              <a
+                href="https://soob-portfolio.vercel.app/"
+                className="w-12 h-12 bg-blue-800 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-6 h-6" />
+              </a>
+            </div>
+
+            
           </div>
 
           {/* Quick Links */}
@@ -52,50 +90,22 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Contact */}
           
 
-          {/* Social Media */}
-          <div className="text-right">
-            <h3 className="text-xl font-bold mb-6">تابعنا</h3>
-            <div className="flex gap-3 justify-end flex-wrap">
-              <a
-                href="https://www.instagram.com/soo_249"
-                className="w-12 h-12 bg-blue-800 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-6 h-6" />
-              </a>
-              <a
-                href="https://www.instagram.com/soo_249"
-                className="w-12 h-12 bg-blue-800 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-6 h-6" />
-              </a>
-              <a
-                href="https://www.instagram.com/soo_249?"
-                className="w-12 h-12 bg-blue-800 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a
-                href="https://www.instagram.com/soo_249"
-                className="w-12 h-12 bg-blue-800 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-6 h-6" />
-              </a>
-            </div>
-
-            
-          </div>
+         
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-blue-800">
+        <div className="pt-2 border-t border-blue-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-blue-200 text-sm">
             <p>© 2026 ريتال للخدمات التعليمية. جميع الحقوق محفوظة.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a>
+               <a
+                href="https://soob-portfolio.vercel.app/"
+                className="  hover:bg-blue-700 "
+                aria-label=""
+              >Devol
+               
+              </a>
+               <a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a>
               <a href="#" className="hover:text-white transition-colors">الشروط والأحكام</a>
             </div>
           </div>

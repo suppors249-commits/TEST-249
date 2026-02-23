@@ -177,7 +177,7 @@ export function UniversitiesSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
-            الجامعات المتعاقدة
+            الجامعات 
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             شراكات مع أفضل الجامعات العالمية لضمان قبولك الأكاديمي
@@ -185,48 +185,50 @@ export function UniversitiesSection() {
         </motion.div>
 
         {/* Search + Country Dropdown */}
-        <div className="max-w-5xl mx-auto mb-12 flex flex-col md:flex-row gap-4 items-start">
-          {/* Search Input */}
-          <div className="flex-1 relative">
-            <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="text"
-              placeholder="ابحث عن جامعة، مدينة، أو دولة..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pr-12 pl-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-            />
-          </div>
+        <div className="max-w-5xl mx-auto mb-12 flex flex-row gap-4 items-start">
+  {/* Search Input */}
+  {/* Dropdown Filter */}
+  <div className="relative w-18">
+    <button
+      onClick={() => setDropdownOpen(!dropdownOpen)}
+      className="w-full flex items-center justify-between gap-2 bg-gray-100 px-4 py-3 rounded-xl border-2 border-gray-200 hover:bg-gray-200 transition-all"
+    >
+      <Filter className="w-5 h-5 text-gray-600" />
+      {countries.find(c => c.value === selectedCountry)?.name || 'اختر الدولة'}
+    </button>
 
-          {/* Dropdown Filter */}
-          <div className="relative">
-            <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-2 bg-gray-100 px-4 py-3 rounded-xl border-2 border-gray-200 hover:bg-gray-200 transition-all"
-            >
-              <Filter className="w-5 h-5 text-gray-600" />
-              {countries.find(c => c.value === selectedCountry)?.name || 'اختر الدولة'}
-            </button>
+    {dropdownOpen && (
+      <ul className="absolute mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-auto">
+        {countries.map((country) => (
+          <li
+            key={country.value}
+            className="px-4 py-3 hover:bg-blue-100 cursor-pointer transition-all"
+            onClick={() => {
+              setSelectedCountry(country.value);
+              setDropdownOpen(false);
+              setVisibleCount(3);
+            }}
+          >
+            {country.name}
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+  <div className="flex-1 relative">
+    
+    <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+    <input
+      type="text"
+      placeholder="ابحث عن جامعة، مدينة، أو دولة..."
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      className="w-full pr-12 pl-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+    />
+  </div>
 
-            {dropdownOpen && (
-              <ul className="absolute mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-auto">
-                {countries.map((country) => (
-                  <li
-                    key={country.value}
-                    className="px-4 py-3 hover:bg-blue-100 cursor-pointer transition-all"
-                    onClick={() => {
-                      setSelectedCountry(country.value);
-                      setDropdownOpen(false);
-                      setVisibleCount(3); // إعادة تعيين عرض البطاقات
-                    }}
-                  >
-                    {country.name}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </div>
+  
+</div>
 
         {/* Universities Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

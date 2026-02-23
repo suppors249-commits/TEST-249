@@ -3,6 +3,7 @@ import { GraduationCap, FileCheck, Award, Plane, Users, Building2 } from 'lucide
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useEffect, useState } from 'react';
 import MosabImage from '../pilden/mosab.jpg';
+import mostfImage from '../pilden/mostf.jpg';
 
 const services = [
   {
@@ -45,9 +46,9 @@ const team = [
     isOwner: true,
   },
   {
-    name: 'سارة إبراهيم',
-    position: 'مستشارة تعليمية',
-    image: 'https://i.pinimg.com/736x/a9/21/7f/a9217f43edd88f18a5bdbc480aa4d8e4.jpg',
+    name: 'مصطفي باريس',
+    position: 'المستشار التعليمي',
+    image: mostfImage,
   },
   {
     name: 'مريم',
@@ -263,7 +264,7 @@ export function AboutSection() {
           <div className="grid sm:grid-cols-3 gap-8 text-center text-white">
             <div>
               <div className="text-5xl md:text-6xl font-bold mb-3">
-                {isVisible && <CountUpNumber end={120} />}
+                {isVisible && <CountUpNumber end={220} />}
               </div>
               <div className="text-blue-100 text-lg">طالب سافر</div>
             </div>
@@ -275,7 +276,7 @@ export function AboutSection() {
             </div>
             <div>
               <div className="text-5xl md:text-6xl font-bold mb-3">
-                {isVisible && <CountUpNumber end={5} />}
+                {isVisible && <CountUpNumber end={7} />}
               </div>
               <div className="text-blue-100 text-lg">سنوات خبرة</div>
             </div>
